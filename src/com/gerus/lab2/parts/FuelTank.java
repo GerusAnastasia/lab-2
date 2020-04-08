@@ -2,8 +2,8 @@ package com.gerus.lab2.parts;
 
 public class FuelTank extends AbstractPart {
 
-    protected double volume;
-    protected double value;
+    private double volume;
+    private double value;
 
     public FuelTank(double volume) {
         super(volume * 2.5d);
@@ -17,6 +17,14 @@ public class FuelTank extends AbstractPart {
 
     public double getVolume() {
         return volume;
+    }
+
+    public void setVolume(double volume) {
+        this.volume = volume;
+    }
+
+    public void setValue(double value) {
+        this.value = value;
     }
 
     public void putFuel(double amount) {

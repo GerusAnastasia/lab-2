@@ -2,7 +2,7 @@ package com.gerus.lab2.parts;
 
 public class Wheel extends AbstractPart {
 
-    protected boolean isDeflated;
+    private boolean isDeflated;
 
     public Wheel() {
         super(5f);
@@ -11,6 +11,10 @@ public class Wheel extends AbstractPart {
 
     public boolean isDeflated() {
         return isDeflated;
+    }
+
+    public void setDeflated(boolean deflated) {
+        isDeflated = deflated;
     }
 
     public void setDeflated() {

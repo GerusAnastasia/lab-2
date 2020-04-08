@@ -2,7 +2,7 @@ package com.gerus.lab2.parts;
 
 public class Engine extends AbstractPart {
 
-    protected boolean isStarted;
+    private boolean isStarted;
 
     public Engine() {
         super(15d);
@@ -11,6 +11,10 @@ public class Engine extends AbstractPart {
 
     public boolean isStarted() {
         return isStarted;
+    }
+
+    public void setStarted(boolean started) {
+        isStarted = started;
     }
 
     public void work() {

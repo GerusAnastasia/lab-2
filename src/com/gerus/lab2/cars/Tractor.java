@@ -1,7 +1,15 @@
 package com.gerus.lab2.cars;
 
 public class Tractor extends Car {
-    public String equipment;
+    private String equipment;
+
+    public String getEquipment() {
+        return equipment;
+    }
+
+    public void setEquipment(String equipment) {
+        this.equipment = equipment;
+    }
 
     public Tractor (String equipment, String name, int doors, double fuelVolume){
         super(name, doors, fuelVolume);

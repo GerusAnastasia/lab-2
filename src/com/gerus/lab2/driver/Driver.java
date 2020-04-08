@@ -6,6 +6,14 @@ import com.gerus.lab2.parts.Wheel;
 public class Driver {
     private Car car;
 
+    public Car getCar() {
+        return car;
+    }
+
+    public void setCar(Car car) {
+        this.car = car;
+    }
+
     public Driver(Car car){
         this.car = car;
     }
@@ -16,10 +24,10 @@ public class Driver {
             return;
         }
         if(wantOpen){
-            car.carCase.setDoorOpened(index);
+            car.getCarCase().setDoorOpened(index);
         }
         else{
-            car.carCase.setDoorClosed(index);
+            car.getCarCase().setDoorClosed(index);
         }
 
     }
@@ -29,7 +37,7 @@ public class Driver {
             System.out.println("Error wheel.");
             return;
         }
-        Wheel current = car.wheels.get(index);
+        Wheel current = car.getWheels().get(index);
         current.setDeflated();
     }
 }

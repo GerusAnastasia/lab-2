@@ -64,17 +64,17 @@ public class Controller {
 
     @FXML
     void initialize() {
-        AllData all = new AllData();
+        AllData all = AllData.getInstance();
         Drive.setOnAction(actionEvent -> {
             String name = SetName.getText();
             int numOfDoors = Integer.parseInt(SetNumOfDoors.getText());
             double volumeOfTank = Double.parseDouble(SetVolume.getText());
             all.car = new Car(name, numOfDoors, volumeOfTank);
             all.car.drive();
-            GetEngineWeight.setText(Double.toString(all.car.engine.getWeight()));
-            GetTankWeight.setText(Double.toString(all.car.tank.getWeight()));
-            GetWheelWeight.setText(Double.toString(all.car.wheels.get(0).getWeight()));
-            GetFuel.setText(Double.toString(all.car.tank.getValue()));
+            GetEngineWeight.setText(Double.toString(all.car.getEngine().getWeight()));
+            GetTankWeight.setText(Double.toString(all.car.getTank().getWeight()));
+            GetWheelWeight.setText(Double.toString(all.car.getWheels().get(0).getWeight()));
+            GetFuel.setText(Double.toString(all.car.getTank().getValue()));
         });
         RemoveSnow.setOnAction(actionEvent -> {
             String equipment = SetEquipment.getText();

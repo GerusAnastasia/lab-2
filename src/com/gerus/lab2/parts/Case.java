@@ -6,8 +6,8 @@ import java.util.Map;
 
 public class Case extends AbstractPart {
 
-    protected int doors = 4;
-    protected Map<Integer, Boolean> opened;
+    private int doors = 4;
+    private Map<Integer, Boolean> opened;
 
     public Case(int doors) {
         super(20d + 5d * doors);
@@ -17,6 +17,18 @@ public class Case extends AbstractPart {
 
     public int getDoors() {
         return doors;
+    }
+
+    public Map<Integer, Boolean> getOpened() {
+        return opened;
+    }
+
+    public void setDoors(int doors) {
+        this.doors = doors;
+    }
+
+    public void setOpened(Map<Integer, Boolean> opened) {
+        this.opened = opened;
     }
 
     public boolean isDoorOpened(int index) {

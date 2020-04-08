@@ -5,14 +5,63 @@ import java.util.ArrayList;
 
 public class Car {
 
-    public String name;
+    private String name;
 
-    public ArrayList<AbstractPart> parts;
+    private ArrayList<AbstractPart> parts;
 
-    public Case carCase;
-    public Engine engine;
-    public FuelTank tank;
-    public ArrayList<Wheel> wheels;
+    private Case carCase;
+    private Engine engine;
+    private FuelTank tank;
+    private ArrayList<Wheel> wheels;
+
+
+    public String getName() {
+        return name;
+    }
+
+    public ArrayList<AbstractPart> getParts() {
+        return parts;
+    }
+
+    public Case getCarCase() {
+        return carCase;
+    }
+
+    public Engine getEngine() {
+        return engine;
+    }
+
+    public FuelTank getTank() {
+        return tank;
+    }
+
+    public ArrayList<Wheel> getWheels() {
+        return wheels;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setParts(ArrayList<AbstractPart> parts) {
+        this.parts = parts;
+    }
+
+    public void setCarCase(Case carCase) {
+        this.carCase = carCase;
+    }
+
+    public void setEngine(Engine engine) {
+        this.engine = engine;
+    }
+
+    public void setTank(FuelTank tank) {
+        this.tank = tank;
+    }
+
+    public void setWheels(ArrayList<Wheel> wheels) {
+        this.wheels = wheels;
+    }
 
     public Car(String name, int doors, double fuelVolume) {
         this.name = name;

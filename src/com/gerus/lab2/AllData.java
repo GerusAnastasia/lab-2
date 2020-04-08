@@ -9,7 +9,12 @@ public class AllData {
     public Driver driver;
     public Tractor tractor;
 
-    public AllData(){
-
+    private AllData(){
+    }
+    private static AllData instance = null;
+    public static AllData getInstance(){
+        if(instance == null)
+            instance = new AllData();
+        return instance;
     }
 }
