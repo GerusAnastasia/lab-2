@@ -101,6 +101,7 @@ public class Car {
     public void drive() {
         double amount = tank.getVolume() - 1;
         start(amount);
+        this.tank.useFuel(2);
         System.out.println("Car is going.");
 
 

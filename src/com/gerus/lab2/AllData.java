@@ -5,9 +5,33 @@ import com.gerus.lab2.cars.Tractor;
 import com.gerus.lab2.driver.Driver;
 
 public class AllData {
-    public Car car;
-    public Driver driver;
-    public Tractor tractor;
+    private Car car;
+    private Driver driver;
+    private Tractor tractor;
+
+    public Car getCar() {
+        return car;
+    }
+
+    public Driver getDriver() {
+        return driver;
+    }
+
+    public Tractor getTractor() {
+        return tractor;
+    }
+
+    public void setCar(Car car) {
+        this.car = car;
+    }
+
+    public void setDriver(Driver driver) {
+        this.driver = driver;
+    }
+
+    public void setTractor(Tractor tractor) {
+        this.tractor = tractor;
+    }
 
     private AllData(){
     }

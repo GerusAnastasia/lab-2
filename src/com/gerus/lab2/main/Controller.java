@@ -69,21 +69,29 @@ public class Controller {
             String name = SetName.getText();
             int numOfDoors = Integer.parseInt(SetNumOfDoors.getText());
             double volumeOfTank = Double.parseDouble(SetVolume.getText());
-            all.car = new Car(name, numOfDoors, volumeOfTank);
-            all.car.drive();
-            GetEngineWeight.setText(Double.toString(all.car.getEngine().getWeight()));
-            GetTankWeight.setText(Double.toString(all.car.getTank().getWeight()));
-            GetWheelWeight.setText(Double.toString(all.car.getWheels().get(0).getWeight()));
-            GetFuel.setText(Double.toString(all.car.getTank().getValue()));
+            //all.car = new Car(name, numOfDoors, volumeOfTank);
+            if (AllData.getInstance().getCar() == null) {
+                AllData.getInstance().setCar(new Car(name, numOfDoors, volumeOfTank));
+            }
+            all.getCar().drive();
+            GetEngineWeight.setText(Double.toString(all.getCar().getEngine().getWeight()));
+            GetTankWeight.setText(Double.toString(all.getCar().getTank().getWeight()));
+            GetWheelWeight.setText(Double.toString(all.getCar().getWheels().get(0).getWeight()));
+            GetFuel.setText(Double.toString(all.getCar().getTank().getValue()));
         });
         RemoveSnow.setOnAction(actionEvent -> {
             String equipment = SetEquipment.getText();
             String name = SetName.getText();
             int numOfDoors = Integer.parseInt(SetNumOfDoors.getText());
             double volumeOfTank = Double.parseDouble(SetVolume.getText());
-            all.car = new Car(name, numOfDoors, volumeOfTank);
-            all.tractor = new Tractor(equipment, name, numOfDoors, volumeOfTank);
-            all.tractor.removeSnow();
+
+            if (AllData.getInstance().getCar() == null) {
+                AllData.getInstance().setCar(new Car(name, numOfDoors, volumeOfTank));
+            }
+            if (AllData.getInstance().getTractor() == null) {
+                all.setTractor(new Tractor(equipment, name, numOfDoors, volumeOfTank));
+            }
+            all.getTractor().removeSnow();
         });
         InflateWheel.setOnAction(actionEvent -> {
             int index = Integer.parseInt(SetIndex.getText());
@@ -91,10 +99,13 @@ public class Controller {
             String name = SetName.getText();
             int numOfDoors = Integer.parseInt(SetNumOfDoors.getText());
             double volumeOfTank = Double.parseDouble(SetVolume.getText());
-            all.car = new Car(name, numOfDoors, volumeOfTank);
-            all.driver = new Driver(all.car);
-
-            all.driver.putWheel(index);
+            if (AllData.getInstance().getCar() == null) {
+                AllData.getInstance().setCar(new Car(name, numOfDoors, volumeOfTank));
+            }
+            if (AllData.getInstance().getDriver() == null) {
+                all.setDriver(new Driver(all.getCar()));
+            }
+            all.getDriver().putWheel(index);
 
         });
         OpenDoor.setOnAction(actionEvent -> {
@@ -103,10 +114,15 @@ public class Controller {
             String name = SetName.getText();
             int numOfDoors = Integer.parseInt(SetNumOfDoors.getText());
             double volumeOfTank = Double.parseDouble(SetVolume.getText());
-            all.car = new Car(name, numOfDoors, volumeOfTank);
-            all.driver = new Driver(all.car);
 
-            all.driver.manageCar(index, true);
+            if (AllData.getInstance().getCar() == null) {
+                AllData.getInstance().setCar(new Car(name, numOfDoors, volumeOfTank));
+            }
+            if (AllData.getInstance().getDriver() == null) {
+                all.setDriver(new Driver(all.getCar()));
+            }
+
+            all.getDriver().manageCar(index, true);
         });
 
         CloseDoor.setOnAction(actionEvent -> {
@@ -115,10 +131,14 @@ public class Controller {
             String name = SetName.getText();
             int numOfDoors = Integer.parseInt(SetNumOfDoors.getText());
             double volumeOfTank = Double.parseDouble(SetVolume.getText());
-            all.car = new Car(name, numOfDoors, volumeOfTank);
-            all.driver = new Driver(all.car);
+            if (AllData.getInstance().getCar() == null) {
+                AllData.getInstance().setCar(new Car(name, numOfDoors, volumeOfTank));
+            }
+            if (AllData.getInstance().getDriver() == null) {
+                all.setDriver(new Driver(all.getCar()));
+            }
 
-            all.driver.manageCar(index, false);
+            all.getDriver().manageCar(index, false);
         });
 
 
